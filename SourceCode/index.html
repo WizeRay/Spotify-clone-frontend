@@ -12,27 +12,77 @@
         
         <div class="global_nav flex">
             <ul class="flex">
-                <li><div class="logo"><img src="../Assets/Logo.svg" alt="" width="38"></div></li>
+                <li class="logo-li flex"><div class="logo"><img src="../Assets/Logo.svg" alt="" width="32"></div></li>
                 <li class="bg-lightgrey home flex ">
                     <div class="invert">
-                        <img src="../Assets/home.svg" alt="" width="28">
+                        <img src="../Assets/home.svg" alt="" width="24">
                     </div>
                     
                 </li>
-                <li class =" search bg-lightgrey flex"><div class="invert"><img src="../Assets/search.svg" alt="" width="28"></div>
+                <li class =" search circular bg-lightgrey flex"><div class="invert"><img src="../Assets/search.svg" alt="" width="22"></div>
                     <input type="text" placeholder="What do you want to play?">
                 </li>
             </ul>
         </div>
+
+        <div class="nav-right flex">
+            <ul class="nav-links nobullets flex">
+                <li><a href="#">Premium</a></li>
+                <li><a href="#">Support</a></li>
+                <li><a href="#">Download</a></li>
+            </ul>
+
+            <div class="divider"></div>
+            
+            <div class="install-app flex">
+                <img class="invert" src="../Assets/install.svg" width="16">
+                <span>Install App</span>
+             </div>
+                <div class="login-signup flex">
+                <a href="#" class="signup">Sign up</a>
+
+                <button class="login-btn rad-button flat circular">Log in</button>
+            </div>
+
+        </div>
+        
     </header>
     
-    <div class="container flex border" >
-        <div class="left border flex">
-            
-            <div class="library"></div>
+    <main class=" flex " >
+        <section class="left bg-grey rounded vflex">
+        
+            <div class="library-header flex ">
+                
+                <div class="library flex bold">Your Library</div>
+                
+                    
+                <button class=" addPlaylist-btn rad-button flat bg-lightgrey circular flex " type="button">
+                    <img class="invert" src="../Assets/plus.svg" alt="Plus Sign" width="16px">
+                    Create 
+                </button>
+                
+                
+            </div>
+            <div class="library-content">
+                <div class="playlistCreation"></div>
+                <footer class="legal">
+                <ul class=" legal-links nobullets flex transparent">
+                    <li><a href="#">Legal</a></li>
+                    <li><a href="#">Safety & Privacy Center</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Cookie Settings</a></li>
+                    <li><a href="#">About Ads</a></li>
+                    <li><a href="#">Accessibility</a></li>
+                </ul>
+            </footer>
         </div>
-        <div class="right border">uwu</div>
-    </div>
+
+            
+        
+        
+        </section>
+        <div class="right rounded bg-grey ">uwu</div>
+    </main>
     
     
     <script src="./script.js"></script>

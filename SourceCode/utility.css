@@ -5,6 +5,11 @@
 .flex{
     display: flex;
 }
+
+.vflex{
+    display: flex;
+    flex-direction: column;
+}
 .justify-center{
     justify-content: center;
 }
@@ -17,7 +22,38 @@
 .bg-grey{
     background-color: #121212;
 }
+.bg-midgrey{
+    background-color: #d3d3d3;
+}
 .bg-lightgrey{
-    background:#1f1f1f;
+    background-color:#1f1f1f;
    
 }
+.rounded{
+    border-radius: 8px;
+}
+.circular{
+    border-radius: 999px;
+}
+.flat{
+    box-shadow: none;
+    
+    border: 0px;
+}
+.rad-button{
+    cursor: pointer;
+    font-weight: bold;
+}
+.bold{
+    font-weight: bold;
+}
+.nobullets{
+    list-style: none;
+}
+.transparent{
+    background: transparent;
+}
+
+/* .light-on-hover:hover {
+  filter: brightness(3.00);
+} */
