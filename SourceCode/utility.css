@@ -53,6 +53,9 @@
 .transparent{
     background: transparent;
 }
+.flip {
+    transform: scaleX(-1);
+}
 
 /* .light-on-hover:hover {
   filter: brightness(3.00);

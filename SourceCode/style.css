@@ -15,6 +15,9 @@ header{
     height:64px;
     padding:0 0 0 2%;
 }
+footer{
+    padding: 1%;
+}
 
 button{
     color: white;
@@ -86,7 +89,7 @@ button:hover{
     width:100%;
 }
 .left {
-    width: 33.5vw;
+    width: 35.25vw;
     margin:0 .6%;
     padding: .5% 1.8%;
     justify-content: space-between;
@@ -94,9 +97,11 @@ button:hover{
 
 
 .right{
-    width:66.5vw ;
+    width:64.75vw ;
     margin:0 .6%;
     padding: .5% 1.8%;
+    position: relative;
+    
 }
 .library-header{
     width: 100%;
@@ -175,9 +180,125 @@ section{
     width: 1px;
     background-color: white;
 }
+.card{
+    min-width: 153.59px;
+    padding: 1vw;
+    box-sizing: content-box;
+    border-radius: 8px;
+
+}
+.card:hover{
+    background-color:#1f1f1f;
+}
+.cardContainer{
+    display: flex;
+    overflow-x: auto;
+    &::-webkit-scrollbar {
+        display: none;
+    }
+}
+
+.imageInfo >*{
+    padding-top: .8vh;
+}
+.right-heading{
+    padding:1vw;
+    font-weight: bold;
+}
+.cardImage{
+    position: relative;
+}
+.coverImg{
+    width: 100%;
+    
+    border-radius: 6px;
+    object-fit: contain;
+    
+}
+.playBtn{
+    position: absolute;
+    right: 7%;
+    bottom: 7%;
+
+    width: 31%;
+    height: 31%;
+    border-radius: 50%;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: #1ed760;
+    opacity: 0;
+    transition: all .3s ease-out;
+    
+    
+}
+.playBtn img{
+    width: 50%;
+    
+}
+.playBar{
+    position: absolute;
+    bottom: 1%;
+    right: 1%;
+    left: 1%;
+    background-color: black;
+    justify-content: center;
+    
+    
+    
+    
+    padding: 2%;
+}
+.song-buttons{
+    gap: 15px;
+}
+
+.playBar-playBtn{
+    width: 35px;
+    height: 35px;
+    
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    background-color: white;
+    
+    transition: all .3s ease-out;
+}
+.playBar-playBtn:hover{
+    transform: scale(1.1);
+}
+.playBar-playBtn img{
+ width: 25px;
+}
+.next{
+    width:20px;
+    transition: all .3s ease-out;
+}
+.next:hover{
+    transform: scale(1.1);
+}
+.prev{
+    width:20px;
+    transition:  .3s ease-out;
+}
+.prev:hover{
+    transform: scaleX(-1) scale(1.1);
+}
+    
 
 
-
+/* .card img{
+    
+     
+    
+} */
+/* .card >*{
+    padding-top: 1vh;
+} */
 
 /* .library-content{
     min-height: 50vh;
