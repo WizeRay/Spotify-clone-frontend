@@ -13,6 +13,9 @@
         <div class="global_nav flex">
             <ul class="flex">
                 <li class="logo-li flex"><div class="logo"><img src="../Assets/svg/Logo.svg" alt="" width="32"></div></li>
+                <li class="flex hamburgerContainer">
+                    <img src="../Assets/svg/hamburger-button.svg" class="invert  hamburger" alt="" >
+                </li>
                 <li class="bg-lightgrey home flex ">
                     <div class="invert">
                         <img src="../Assets/svg/home.svg" alt="" width="24">
@@ -53,7 +56,7 @@
         
             <div class="library-header flex ">
                 
-                <div class="library flex bold">Your Library</div>
+                <div class="library flex bold">Your Songs</div>
                 
                     
                 <button class=" addPlaylist-btn rad-button flat bg-lightgrey circular flex " type="button">
@@ -63,9 +66,21 @@
                 
                 
             </div>
-            <div class="library-content">
-                <div class="playlistCreation"></div>
-                <footer class="legal">
+            <div class="line"></div>
+            <div class="library-content vflex">
+                
+                <div class="songSelection rounded">
+                    <h3 class="playlistName">Insert Playlist Name Here</h3>
+                    <ul>
+                        
+                    </ul>
+                </div>
+
+
+                
+            
+
+            <footer class="legal">
                 <ul class=" legal-links nobullets flex transparent">
                     <li><a href="#">Legal</a></li>
                     <li><a href="#">Safety & Privacy Center</a></li>
@@ -75,9 +90,8 @@
                     <li><a href="#">Accessibility</a></li>
                 </ul>
             </footer>
-        </div>
 
-            
+            </div>
         
         
         </section>
@@ -103,7 +117,7 @@
                     <div class="cardImage">
                         <img class="coverImg" src="https://i.scdn.co/image/ab67616d00001e02cdce9a38222807fa703b4396" alt="">
                         <div class="playBtn">
-                            <img src="../Assets/play.svg" alt="" >
+                            <img src="../Assets/svg/play.svg" alt="" >
                         </div>
                     </div>
                     <div class="imageInfo">
@@ -116,7 +130,7 @@
                     <div class="cardImage">
                         <img class="coverImg" src="https://i.scdn.co/image/ab67616d00001e02cdce9a38222807fa703b4396" alt="">
                         <div class="playBtn">
-                            <img src="../Assets/play.svg" alt="" >
+                            <img src="../Assets/svg/play.svg" alt="" >
                         </div>
                     </div>
                     <div class="imageInfo">
@@ -129,7 +143,7 @@
                     <div class="cardImage">
                         <img class="coverImg" src="https://i.scdn.co/image/ab67616d00001e02cdce9a38222807fa703b4396" alt="">
                         <div class="playBtn">
-                            <img src="../Assets/play.svg" alt="" >
+                            <img src="../Assets/svg/play.svg" alt="" >
                         </div>
                     </div>
                     <div class="imageInfo">
@@ -142,7 +156,7 @@
                     <div class="cardImage">
                         <img class="coverImg" src="https://i.scdn.co/image/ab67616d00001e02cdce9a38222807fa703b4396" alt="">
                         <div class="playBtn">
-                            <img src="../Assets/play.svg" alt="" >
+                            <img src="../Assets/svg/play.svg" alt="" >
                         </div>
                     </div>
                     <div class="imageInfo">
@@ -155,19 +169,38 @@
 
 
 
-            <div class="playBar flex circular ">
+            <div class="playBar vflex ">
+                    <div class="topPartPlayBar flex">
+                        <div class="songInfo-playBar flex">
+                            
+                        </div>
 
-                <div class="songInfo"></div>
-
-                <div class="song-buttons flex">
-                    <img src="../Assets/svg/next.svg" alt="" class="prev flip invert">
-                    <div class="playBar-playBtn circular">
-                        <img src="../Assets/svg/play.svg" alt="">
+                    <div class="song-buttons flex">
+                        
+                        <img id="prev" src="../Assets/svg/next.svg" alt="" class="prev flip invert">
+                        <div id="play" class="playBar-playBtn circular">
+                            <img src="../Assets/svg/play.svg" alt="">
+                        </div>
+                        <img id="next" src="../Assets/svg/next.svg" alt="" class="next invert">
                     </div>
-                    <img src="../Assets/svg/next.svg" alt="" class="next invert">
-                </div>
+                    <div class="volume"></div>
+                    </div>
+                
+                     <div class="seekBar flex">
 
-                <div class="songTime"></div>
+                        
+
+                    <div class="currentTime"></div>
+                    <div class="timeBar flex">
+                        <div class="progress"></div>
+                        <div class="circle"></div>
+                    </div>
+                    <div class="totalTime">--</div>
+
+                    </div>
+              
+
+                
             </div>
 
         </section>
