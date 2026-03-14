@@ -140,13 +140,12 @@ async function loadCards(){
    let playlists = await loadPlaylists()
     let cardContainer = document.querySelector(".cardContainer")
 
-    for(let i = 0; i < links.length; i++){
+    for(let folder in playlists){
 
-        let element = links[i]
+        let playlist = playlists[folder]
 
-        if(element.href.includes("/songs/") && !element.href.endsWith(".mp3")){
+        
 
-            let folder = element.href.split("/songs/")[1].replace("/","")
 
             // card
             let card = document.createElement("div")
@@ -159,7 +158,7 @@ async function loadCards(){
             // cover image
             let img = document.createElement("img")
             img.classList.add("coverImg")
-            img.src = playlistName.cover
+            img.src = playlist.cover
 
             // play button
             let playBtn = document.createElement("div")
@@ -171,7 +170,7 @@ async function loadCards(){
             //click event on playbutton
             playBtn.addEventListener("click",async()=>{
                 currentFolder = folder
-                folderSongs = await getSongs(folder)
+                folderSongs = playlist.songs
                 renderSongList(folderSongs,currentFolder)
                 playlistName.textContent = folder.replace("%26","&")
                 playSong(folderSongs[0], folder, folderSongs)
@@ -199,7 +198,7 @@ async function loadCards(){
             cardContainer.appendChild(card)
         }
     }
-}
+
 function renderSongList(folderSongs,folder) {
     for (const song of folderSongs) {
         songUL.innerHTML = ""

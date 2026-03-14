@@ -1,6 +1,6 @@
 {
     "Classical":{
-        "cover": "/songs/Classical/cover.jpg",
+        "cover": "songs/Classical/cover.jpeg",
         "songs": [
         "amberlight-by-scott-buckley.mp3",
         "penumbra-by-scott-buckley.mp3",
@@ -11,7 +11,7 @@
     },
      
     "Hiphop&Rap":{
-        "cover": "/songs/Hiphop$Rap/cover.jpg",
+        "cover": "songs/Hiphop&Rap/cover.jpeg",
         "songs": [
         "alone-by-qlowdy.mp3",
         "good-energy-by-aylex.mp3",
@@ -22,7 +22,7 @@
     },
 
     "Jazz&Blues":{
-        "cover": "/songs/Jazz&Blues/cover.jpg",
+        "cover": "songs/Jazz&Blues/cover.jpeg",
         "songs": [
         "chimes-by-snoozybeats.mp3",
         "jazzy-night-by-audio-library-beats.mp3",
@@ -33,7 +33,7 @@
     },
 
     "Pop":{
-        "cover": "/songs/Pop/cover.jpg",
+        "cover": "songs/Pop/cover.jpeg",
         "songs": [
         "cheer-up-by-sakura-girl.mp3",
         "early-bird-by-jay-someday.mp3",
