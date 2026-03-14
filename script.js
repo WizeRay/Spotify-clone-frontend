@@ -73,7 +73,7 @@ function playSong(song,folder,folderSongs){
     currentSong.play()
     let info = songInfoFinder(song)
     songInfo.textContent = `${toTitleCase(info.songName)} - ${toTitleCase(info.songArtist)}`
-    playImg.src = "../Assets/svg/pause.svg"
+    playImg.src = "Assets/svg/pause.svg"
 }
 //songInfo finder function
 function songInfoFinder(song){
@@ -165,7 +165,7 @@ async function loadCards(){
             playBtn.classList.add("playBtn")
 
             let playIcon = document.createElement("img")
-            playIcon.src = "../Assets/svg/play.svg"
+            playIcon.src = "Assets/svg/play.svg"
 
             //click event on playbutton
             playBtn.addEventListener("click",async()=>{
@@ -216,7 +216,7 @@ function renderSongList(folderSongs,folder) {
         let li = document.createElement("li")
 
         let songImage = document.createElement("img")
-        songImage.src = "../Assets/svg/music.svg"
+        songImage.src = "Assets/svg/music.svg"
         songImage.classList.add("invert")
 
         let songInfoEl = document.createElement("div")
@@ -238,7 +238,7 @@ function renderSongList(folderSongs,folder) {
 
     
         let playBtnImg = createElement("img","")
-        playBtnImg.src ="../Assets/Svg/play.svg"
+        playBtnImg.src ="Assets/Svg/play.svg"
         playBtn.appendChild(playBtnImg)
         
 
@@ -284,11 +284,11 @@ async function main(){
     play.addEventListener("click",()=>{
         if(currentSong.paused){
             currentSong.play()
-            playImg.src = "../Assets/Svg/pause.svg"
+            playImg.src = "Assets/Svg/pause.svg"
         }
         else{
             currentSong.pause()
-            playImg.src = "../Assets/Svg/play.svg"
+            playImg.src = "Assets/Svg/play.svg"
         }
         // update song info
     // if(currentSong.src){
