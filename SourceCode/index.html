@@ -23,7 +23,7 @@
                     
                 </li>
                 <li class =" search circular bg-lightgrey flex"><div class="invert"><img src="../Assets/svg/search.svg" alt="" width="22"></div>
-                    <input type="text" placeholder="What do you want to play?">
+                    <input type="text" placeholder="Search">
                 </li>
             </ul>
         </div>
@@ -37,10 +37,7 @@
 
             <div class="divider"></div>
             
-            <div class="install-app flex">
-                <img class="invert" src="../Assets/svg/install.svg" width="16">
-                <span>Install App</span>
-             </div>
+            
                 <div class="login-signup flex">
                 <a href="#" class="signup">Sign up</a>
 
@@ -70,7 +67,7 @@
             <div class="library-content vflex">
                 
                 <div class="songSelection rounded">
-                    <h3 class="playlistName">Insert Playlist Name Here</h3>
+                    <h3 class="playlistName"></h3>
                     <ul>
                         
                     </ul>
@@ -95,25 +92,16 @@
         
         
         </section>
+        
         <section class="right rounded bg-grey vflex">
             
             <h2 class="right-heading">Trending songs</h2>
+            
             <div class="cardContainer">
 
-                <div class="card">
-                    <div class="cardImage">
-                        <img class="coverImg" src="https://i.scdn.co/image/ab67616d00001e02cdce9a38222807fa703b4396" alt="">
-                        <div class="playBtn">
-                            <img src="../Assets/svg/play.svg" alt="" >
-                        </div>
-                    </div>
-                    <div class="imageInfo">
-                        <h3>Bairan</h3>
-                        <p>Banjaare</p>
-                    </div>
-                </div>
+                <!-- Card syntax -->
 
-                <div class="card">
+                <!-- <div class="card">
                     <div class="cardImage">
                         <img class="coverImg" src="https://i.scdn.co/image/ab67616d00001e02cdce9a38222807fa703b4396" alt="">
                         <div class="playBtn">
@@ -121,56 +109,20 @@
                         </div>
                     </div>
                     <div class="imageInfo">
-                        <h3>Bairan</h3>
-                        <p>Banjaare</p>
+                        <h3>Genre</h3>
+                        
                     </div>
-                </div>
+                </div> -->
 
-                <div class="card">
-                    <div class="cardImage">
-                        <img class="coverImg" src="https://i.scdn.co/image/ab67616d00001e02cdce9a38222807fa703b4396" alt="">
-                        <div class="playBtn">
-                            <img src="../Assets/svg/play.svg" alt="" >
-                        </div>
-                    </div>
-                    <div class="imageInfo">
-                        <h3>Bairan</h3>
-                        <p>Banjaare</p>
-                    </div>
-                </div>
-
-                <div class="card">
-                    <div class="cardImage">
-                        <img class="coverImg" src="https://i.scdn.co/image/ab67616d00001e02cdce9a38222807fa703b4396" alt="">
-                        <div class="playBtn">
-                            <img src="../Assets/svg/play.svg" alt="" >
-                        </div>
-                    </div>
-                    <div class="imageInfo">
-                        <h3>Bairan</h3>
-                        <p>Banjaare</p>
-                    </div>
-                </div>
-
-                 <div class="card">
-                    <div class="cardImage">
-                        <img class="coverImg" src="https://i.scdn.co/image/ab67616d00001e02cdce9a38222807fa703b4396" alt="">
-                        <div class="playBtn">
-                            <img src="../Assets/svg/play.svg" alt="" >
-                        </div>
-                    </div>
-                    <div class="imageInfo">
-                        <h3>Bairan</h3>
-                        <p>Banjaare</p>
-                    </div>
-                </div>
+                
             </div>
+            
 
 
 
 
             <div class="playBar vflex ">
-                    <div class="topPartPlayBar flex">
+                    <div class="topPartPlayBar">
                         <div class="songInfo-playBar flex">
                             
                         </div>
@@ -183,7 +135,13 @@
                         </div>
                         <img id="next" src="../Assets/svg/next.svg" alt="" class="next invert">
                     </div>
-                    <div class="volume"></div>
+                    <div class="volume ">
+                        <img class="invert" src="../Assets/svg/volume-max-svgrepo-com.svg" alt="" >
+                        <div class="volumeBar flex">
+                            <div class="progress"></div>
+                            <div class="circle"></div>
+                        </div>
+                    </div>
                     </div>
                 
                      <div class="seekBar flex">

@@ -1,9 +1,19 @@
 console.log("Lets write JavaScript")
 
 
- //test
-    let folder = "Classical"
+    let folderSongs = []
+    let currentFolder = ""
+    
 
+    let songUL = document.querySelector(".songSelection ul")
+    let playlistName = document.querySelector(".playlistName")
+    playlistName.textContent = "Select a Playlist"
+
+    //creating a fragment as its good practice
+    let fragment1 = document.createDocumentFragment()
+    //creating DOM element for playbar song info
+    let songInfo = createElement("span","--")
+    document.querySelector(".songInfo-playBar").appendChild(songInfo)
 
 
 //createElement function
@@ -50,22 +60,25 @@ let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/`)
 }
 //audio object
 let currentSong = new Audio();
+
 //playSong func
-
- let play = document.getElementById("play")
+let play = document.getElementById("play")
 let playImg =play.querySelector("img")
+let songIndex
 
-function playSong(songPath){
-    currentSong.src = songPath
+
+function playSong(song,folder,folderSongs){
+    currentSong.src = `http://127.0.0.1:5500/songs/${folder}/${song}`
+    songIndex = folderSongs.indexOf(currentSong.src.split("/").pop())
     currentSong.play()
+    let info = songInfoFinder(song)
+    songInfo.textContent = `${toTitleCase(info.songName)} - ${toTitleCase(info.songArtist)}`
     playImg.src = "../Assets/svg/pause.svg"
 }
 //songInfo finder function
-function songInfoFinder(songPath){
+function songInfoFinder(song){
 
-    let fileName = songPath.split("/").pop()
-
-    let songInfo = fileName
+    let songInfo = song
         .replace(/-/g," ")
         .replace(".mp3","")
         .split(" by ")
@@ -77,8 +90,12 @@ function songInfoFinder(songPath){
 }
 //Update song position
 const timeBar = document.querySelector(".timeBar")
-const circle = document.querySelector(".circle")
-const progress = document.querySelector(".progress")
+const circle1 = timeBar.querySelector(".circle")
+const progress1 = timeBar.querySelector(".progress")
+const volumeBar = document.querySelector(".volumeBar")
+const circle2 = volumeBar.querySelector(".circle")
+const progress2 = volumeBar.querySelector(".progress")
+
 
 function updateSeek(e){
 
@@ -89,65 +106,104 @@ function updateSeek(e){
     // prevent overflow
     percent = Math.max(0, Math.min(percent,1))
 
-    circle.style.transform = `translateX(${percent}%)`
-    progress.style.width = percent * 100 + "%"
+    circle1.style.transform = `translateX(${percent*100}%)`
+    progress1.style.width = percent * 100 + "%"
 
     currentSong.currentTime = percent * currentSong.duration
 
     
 }
 
+function updateVolume(e){
 
+    const rect = volumeBar.getBoundingClientRect()
 
+    let percent = (e.clientX - rect.left) / rect.width
 
-async function main(){
+    // prevent overflow
+    percent = Math.max(0, Math.min(percent,1))
+
+    circle2.style.left = `${percent*100}%`
+    progress2.style.width = percent * 100 + "%"
+
+    currentSong.volume = percent
+
     
-   
+}
+async function loadCards(){
 
+    let response = await fetch("http://127.0.0.1:5500/songs/")
+    let text = await response.text()
 
-    let classicalSongs = await getSongs("Classical")
-    console.log("Classical Playlist:",classicalSongs)
+    let div = document.createElement("div")
+    div.innerHTML = text
 
-    let hiphopSongs = await getSongs("Hiphop&Rap")
-    console.log("Hiphop&Rap Playlist:",hiphopSongs)
+    let links = div.getElementsByTagName("a")
+    let cardContainer = document.querySelector(".cardContainer")
 
-    let jazzSongs = await getSongs("Jazz&Blues")
-    console.log("Jazz&Blues Playlist:",jazzSongs)
+    for(let i = 0; i < links.length; i++){
 
-    let popSongs = await getSongs("Pop")
-    console.log("Pop Playlist:",popSongs)
+        let element = links[i]
 
+        if(element.href.includes("/songs/") && !element.href.endsWith(".mp3")){
 
-    //Attaching eventListener to play,next and prev button
-   
-    play.addEventListener("click",()=>{
-        if(currentSong.paused){
-            currentSong.play()
-            playImg.src = "../Assets/Svg/pause.svg"
+            let folder = element.href.split("/songs/")[1].replace("/","")
+
+            // card
+            let card = document.createElement("div")
+            card.classList.add("card")
+
+            // cardImage
+            let cardImage = document.createElement("div")
+            cardImage.classList.add("cardImage")
+
+            // cover image
+            let img = document.createElement("img")
+            img.classList.add("coverImg")
+            img.src = `http://127.0.0.1:5500/songs/${folder}/cover.jpeg`
+
+            // play button
+            let playBtn = document.createElement("div")
+            playBtn.classList.add("playBtn")
+
+            let playIcon = document.createElement("img")
+            playIcon.src = "../Assets/svg/play.svg"
+
+            //click event on playbutton
+            playBtn.addEventListener("click",async()=>{
+                currentFolder = folder
+                folderSongs = await getSongs(folder)
+                renderSongList(folderSongs,currentFolder)
+                playlistName.textContent = folder.replace("%26","&")
+                playSong(folderSongs[0], folder, folderSongs)
+            })
+
+            playBtn.appendChild(playIcon)
+
+            cardImage.appendChild(img)
+            cardImage.appendChild(playBtn)
+
+            // info section
+            let imageInfo = document.createElement("div")
+            imageInfo.classList.add("imageInfo")
+
+            let title = document.createElement("h3")
+            title.textContent = folder.replace("%26","&")
+
+            imageInfo.appendChild(title)
+
+            // assemble card
+            card.appendChild(cardImage)
+            card.appendChild(imageInfo)
+
+            // add to container
+            cardContainer.appendChild(card)
         }
-        else{
-            currentSong.pause()
-            playImg.src = "../Assets/Svg/play.svg"
-        }
-        // update song info
-    if(currentSong.src){
-        let info = songInfoFinder(currentSong.src)
-        document.querySelector(".songInfo-playBar span").textContent = `${toTitleCase(info.songName)} - ${toTitleCase(info.songArtist)}`
     }
-})
-
-   
-    let songUL = document.querySelector(".songSelection ul")
-
-    //creating a fragment as its good practice
-    let fragment1 = document.createDocumentFragment()
-    //creating DOM element for playbar song info
-    let songInfo = createElement("span","--")
-    document.querySelector(".songInfo-playBar").appendChild(songInfo)
-    
-    for (const song of classicalSongs) {
-        let songPath =`http://127.0.0.1:5500/songs/${folder}/${song}`
-
+}
+function renderSongList(folderSongs,folder) {
+    for (const song of folderSongs) {
+        songUL.innerHTML = ""
         //remove .mp3 and -
         let cleanName = song.replace(/-/g , " ").replace(".mp3","")
         
@@ -191,9 +247,8 @@ async function main(){
         //adding eventlistener to library-playbuttons
         playBtn.addEventListener("click",(e)=>{
             e.stopPropagation()
-            playSong(songPath)
-            let info = songInfoFinder(songPath)
-            songInfo.textContent = `${toTitleCase(info.songName)} - ${toTitleCase(info.songArtist)}`
+            playSong(song,folder,folderSongs)
+            
 
             
         })
@@ -209,18 +264,57 @@ async function main(){
     }
 
     songUL.appendChild(fragment1)
+    
+}
+
+async function main(){
+    //initialVolume
+    let initialVolume = 0.5   // range is 0 to 1
+
+    currentSong.volume = initialVolume
+
+    progress2.style.width = initialVolume * 100 + "%"
+    circle2.style.left = initialVolume * 100 + "%"
+
+
+
+    loadCards()
+   
+    
+    //Attaching eventListener to play,next and prev button
+   
+    play.addEventListener("click",()=>{
+        if(currentSong.paused){
+            currentSong.play()
+            playImg.src = "../Assets/Svg/pause.svg"
+        }
+        else{
+            currentSong.pause()
+            playImg.src = "../Assets/Svg/play.svg"
+        }
+        // update song info
+    // if(currentSong.src){
+    //     let info = songInfoFinder(currentSong.src)
+    //     document.querySelector(".songInfo-playBar span").textContent = `${toTitleCase(info.songName)} - ${toTitleCase(info.songArtist)}`
+    // }
+})
+
+   
+   
+    
+    
 
     //adding currentime and timeDuration
 
     //listen for timeupdate event for adding currentime
     let currentTimeEl = document.querySelector(".currentTime")
     currentSong.addEventListener("timeupdate", ()=>{
-        if(isDragging) return
+        if(songIsDragging) return
         currentTimeEl.textContent = formatTime(currentSong.currentTime)
         let progressPercentage = (currentSong.currentTime)*100/currentSong.duration
         
-        circle.style.left = progressPercentage + "%"
-        progress.style.width = progressPercentage + "%"
+        circle1.style.left = progressPercentage + "%"
+        progress1.style.width = progressPercentage + "%"
 
 })
     
@@ -242,25 +336,25 @@ async function main(){
     })
 
     //Drag of circle
-    let isDragging = false
-    circle.addEventListener("pointerdown",(e)=>{
+    let songIsDragging = false
+    circle1.addEventListener("pointerdown",(e)=>{
         
-        isDragging = true
+        songIsDragging = true
 
-        circle.setPointerCapture(e.pointerId)
+        circle1.setPointerCapture(e.pointerId)
     })
 
     document.addEventListener("pointermove",(e)=>{
 
-    if(!isDragging) return 
+    if(!songIsDragging) return 
     updateSeek(e)
 
     })
     document.addEventListener("pointerup",(e)=>{
 
-    isDragging = false
+    songIsDragging = false
 
-    circle.releasePointerCapture(e.pointerId)
+    circle1.releasePointerCapture(e.pointerId)
 
     }) 
     
@@ -276,6 +370,46 @@ async function main(){
         isClicked = false 
         }
     })
+    //next and previous songs
+    
+    let prevEl = document.getElementById("prev")
+    prevEl.addEventListener("click",()=>{
+        if(songIndex>0){
+        playSong(folderSongs[songIndex-1],folder,folderSongs)
+        }
+    })
+    let nextEl = document.getElementById("next")
+    nextEl.addEventListener("click",()=>{
+        if(songIndex+1<folderSongs.length){
+        playSong(folderSongs[songIndex+1],folder,folderSongs)
+        }
+    })
+
+     //Drag of circle2
+    let volumeIsDragging = false
+    circle2.addEventListener("pointerdown",(e)=>{
+        
+        volumeIsDragging = true
+
+        circle2.setPointerCapture(e.pointerId)
+    })
+
+    document.addEventListener("pointermove",(e)=>{
+
+    if(!volumeIsDragging) return 
+    updateVolume(e)
+
+    })
+    document.addEventListener("pointerup",(e)=>{
+
+    volumeIsDragging = false
+
+    circle2.releasePointerCapture(e.pointerId)
+
+    }) 
+    volumeBar.addEventListener("pointerdown",(e)=>{
+    updateVolume(e)
+})
 
 
     
