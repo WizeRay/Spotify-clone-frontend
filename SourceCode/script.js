@@ -39,7 +39,7 @@ function formatTime(seconds) {
 
 async function getSongs(folder){
 
-let a = await fetch(`http://127.0.0.1:5500/songs/${folder}/`)
+let a = await fetch(`/songs/${folder}/`)
     let response = await a.text();
     // console.log(response)
     let div = document.createElement("div")
@@ -68,7 +68,7 @@ let songIndex
 
 
 function playSong(song,folder,folderSongs){
-    currentSong.src = `http://127.0.0.1:5500/songs/${folder}/${song}`
+    currentSong.src = `/songs/${folder}/${song}`
     songIndex = folderSongs.indexOf(currentSong.src.split("/").pop())
     currentSong.play()
     let info = songInfoFinder(song)
@@ -132,7 +132,7 @@ function updateVolume(e){
 }
 async function loadCards(){
 
-    let response = await fetch("http://127.0.0.1:5500/songs/")
+    let response = await fetch("/songs/")
     let text = await response.text()
 
     let div = document.createElement("div")
@@ -160,7 +160,7 @@ async function loadCards(){
             // cover image
             let img = document.createElement("img")
             img.classList.add("coverImg")
-            img.src = `http://127.0.0.1:5500/songs/${folder}/cover.jpeg`
+            img.src = `/songs/${folder}/cover.jpeg`
 
             // play button
             let playBtn = document.createElement("div")
