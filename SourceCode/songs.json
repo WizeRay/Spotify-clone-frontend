@@ -1,0 +1,46 @@
+{
+    "Classical":{
+        "cover": "/songs/Classical/cover.jpg",
+        "songs": [
+        "amberlight-by-scott-buckley.mp3",
+        "penumbra-by-scott-buckley.mp3",
+        "reverie-pt-iv-by-lucjo.mp3",
+        "wildflowers-by-scott-buckley.mp3"
+
+        ]
+    },
+     
+    "Hiphop&Rap":{
+        "cover": "/songs/Hiphop$Rap/cover.jpg",
+        "songs": [
+        "alone-by-qlowdy.mp3",
+        "good-energy-by-aylex.mp3",
+        "road-by-kv.mp3",
+        "sacred-heart-by-mehul-choudhary.mp3"
+
+        ]
+    },
+
+    "Jazz&Blues":{
+        "cover": "/songs/Jazz&Blues/cover.jpg",
+        "songs": [
+        "chimes-by-snoozybeats.mp3",
+        "jazzy-night-by-audio-library-beats.mp3",
+        "sassy-swing-by-audio-library-beats.mp3",
+        "the-journey-home-by-tokyo-music-walker.mp3"
+
+        ]
+    },
+
+    "Pop":{
+        "cover": "/songs/Pop/cover.jpg",
+        "songs": [
+        "cheer-up-by-sakura-girl.mp3",
+        "early-bird-by-jay-someday.mp3",
+        "life-of-riley-by-kevin-macleod.mp3",
+        "sweet-memories-by-sakura-girl.mp3"
+
+        ]
+    }
+
+}

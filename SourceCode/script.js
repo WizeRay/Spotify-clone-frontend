@@ -130,15 +130,14 @@ function updateVolume(e){
 
     
 }
+async function loadPlaylists(){
+    let res = await fetch("/songs.json")
+    let playlists = await res.json()
+    return playlists
+}
 async function loadCards(){
 
-    let response = await fetch("/songs/")
-    let text = await response.text()
-
-    let div = document.createElement("div")
-    div.innerHTML = text
-
-    let links = div.getElementsByTagName("a")
+   let playlists = await loadPlaylists()
     let cardContainer = document.querySelector(".cardContainer")
 
     for(let i = 0; i < links.length; i++){
@@ -160,7 +159,7 @@ async function loadCards(){
             // cover image
             let img = document.createElement("img")
             img.classList.add("coverImg")
-            img.src = `/songs/${folder}/cover.jpeg`
+            img.src = playlistName.cover
 
             // play button
             let playBtn = document.createElement("div")
