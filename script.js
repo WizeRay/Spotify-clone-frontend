@@ -238,7 +238,7 @@ function renderSongList(folderSongs,folder) {
 
     
         let playBtnImg = createElement("img","")
-        playBtnImg.src ="Assets/Svg/play.svg"
+        playBtnImg.src ="Assets/svg/play.svg"
         playBtn.appendChild(playBtnImg)
         
 
