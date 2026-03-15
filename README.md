@@ -22,7 +22,7 @@ https://spotify-clone-frontend-alpha.vercel.app/
 
 
 
-[App Screenshot](./preview.png)
+![Spotify Clone Preview ](preview.png)
 
 ---
 
