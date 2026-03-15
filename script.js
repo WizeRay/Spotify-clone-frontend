@@ -173,7 +173,7 @@ async function loadCards(){
                 folderSongs = playlist.songs
                 renderSongList(folderSongs,currentFolder)
                 playlistName.textContent = folder.replace("%26","&")
-                playSong(folderSongs[0], folder, folderSongs)
+                playSong(folderSongs[0], currentFolder, folderSongs)
             })
 
             playBtn.appendChild(playIcon)
@@ -373,13 +373,13 @@ async function main(){
     let prevEl = document.getElementById("prev")
     prevEl.addEventListener("click",()=>{
         if(songIndex>0){
-        playSong(folderSongs[songIndex-1],folder,folderSongs)
+        playSong(folderSongs[songIndex-1],currentFolder,folderSongs)
         }
     })
     let nextEl = document.getElementById("next")
     nextEl.addEventListener("click",()=>{
         if(songIndex+1<folderSongs.length){
-        playSong(folderSongs[songIndex+1],folder,folderSongs)
+        playSong(folderSongs[songIndex+1],currentFolder,folderSongs)
         }
     })
 
