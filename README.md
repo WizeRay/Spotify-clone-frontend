@@ -183,7 +183,7 @@ If you like this project:
 
 If you'd like to connect or discuss frontend development:
 
-GitHub: https://github.com/your-username
+GitHub: https://github.com/WizeRay
 
 ---
 
